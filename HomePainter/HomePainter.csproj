@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcercaDeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcercaDeForm.designer.cs">
+      <DependentUpon>AcercaDeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AcercaDeForm.resx">
+      <DependentUpon>AcercaDeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

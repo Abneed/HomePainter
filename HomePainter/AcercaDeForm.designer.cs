@@ -1,4 +1,4 @@
-﻿namespace FiguraTraslacionSubModulo
+﻿namespace HomePainter
 {
     partial class AcercaDeForm
     {

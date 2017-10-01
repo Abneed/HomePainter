@@ -12,7 +12,7 @@ namespace HomePainter
 {
     public partial class MainForm : Form
     {
-      //  AcercaDeForm InfoForm;
+        AcercaDeForm InfoForm;
 
         public MainForm()
         {
@@ -106,10 +106,10 @@ namespace HomePainter
 
         private void acercaDeHomePainterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        //    if (InfoForm == null)
-        //        InfoForm = new AcercaDeForm();
-            
-        //    InfoForm.Show();
+            if (InfoForm == null)
+                InfoForm = new AcercaDeForm();
+
+            InfoForm.Show();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

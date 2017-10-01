@@ -794,7 +794,7 @@
             this.flowLayoutPanelColorBorde.Controls.Add(this.picboxDimGray);
             this.flowLayoutPanelColorBorde.Controls.Add(this.picboxBlack);
             this.flowLayoutPanelColorBorde.Controls.Add(this.picboxTransparent);
-            this.flowLayoutPanelColorBorde.Location = new System.Drawing.Point(52, 96);
+            this.flowLayoutPanelColorBorde.Location = new System.Drawing.Point(59, 82);
             this.flowLayoutPanelColorBorde.Name = "flowLayoutPanelColorBorde";
             this.flowLayoutPanelColorBorde.Size = new System.Drawing.Size(342, 159);
             this.flowLayoutPanelColorBorde.TabIndex = 6;
