@@ -90,7 +90,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AcercaDeForm";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.95D;
             this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.picboxHomePainterLogo)).EndInit();
             this.ResumeLayout(false);

@@ -12,16 +12,62 @@ namespace HomePainter
 {
     public partial class MainForm : Form
     {
-        AcercaDeForm InfoForm;
 
+        #region Miembros Publicos Estaticos
+
+        public static Color colorBorde;
+        
+        #endregion
+
+        #region Forms
+
+        AcercaDeForm InfoForm;
+        ColoresForm coloresForm;
+
+        #endregion
+
+        PictureBox picture = new PictureBox
+        {
+            Name = "pictureBox",
+            Size = new Size(100, 100),
+            Location = new Point(100, 100)
+        };
+        
         public MainForm()
         {
             
             InitializeComponent();
 
+            colorBorde = Color.Black;
+
             this.Width = 800;
             this.Height = 600;
+
+            grpboxBorde.Size = new Size(320, 50);
+            picboxBordeColor.Visible = false;
+            numBordeGrosor.Visible = false;
+
             lblMachineName.Text = Environment.MachineName;
+
+            this.picture.BorderStyle = BorderStyle.FixedSingle;
+
+            this.picture.SizeChanged += Picture_SizeChanged;
+
+            this.metroMainPanel.ControlAdded += MetroMainPanel_ControlAdded;
+
+            this.metroMainPanel.Controls.Add(this.picture);
+
+        }
+
+        private void Picture_SizeChanged(object sender, EventArgs e)
+        {
+            Graphics g = this.picture.CreateGraphics();
+            g.FillRectangle(Brushes.Red, new Rectangle(new Point(0, 0), new Size(100, 100)));
+        }
+
+        private void MetroMainPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            this.picture.Size = new Size(100, 100);
         }
 
         private void flowFormat_Paint(object sender, PaintEventArgs e)
@@ -115,6 +161,37 @@ namespace HomePainter
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+
+        private void picboxMain_MouseEnter(object sender, EventArgs e)
+        {
+            picboxBordeColor.BackColor = colorBorde;
+        }
+
+        private void cboBorde_TextChanged(object sender, EventArgs e)
+        {
+            if (cboBorde.Text == "Linea")
+            {
+                grpboxBorde.Size = new Size(320, 100);
+                picboxBordeColor.Visible = true;
+                numBordeGrosor.Visible = true;
+            }
+            else
+            {
+                grpboxBorde.Size = new Size(320, 50);
+                picboxBordeColor.Visible = false;
+                numBordeGrosor.Visible = false;
+            }
+        }
+
+        private void picboxBordeColor_Click(object sender, EventArgs e)
+        {
+            if (coloresForm == null)
+                coloresForm = new ColoresForm();
+
+            coloresForm.Show();
         }
     }
 }

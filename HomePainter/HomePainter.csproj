@@ -60,6 +60,12 @@
     <Compile Include="AcercaDeForm.designer.cs">
       <DependentUpon>AcercaDeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColoresForm.Designer.cs">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +74,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shape.cs" />
     <EmbeddedResource Include="AcercaDeForm.resx">
       <DependentUpon>AcercaDeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColoresForm.resx">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
