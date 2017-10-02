@@ -195,7 +195,6 @@ namespace HomePainter
 
         private void acercaDeHomePainterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if (InfoForm.IsDisposed)
                 InfoForm = new AcercaDeForm();
 
