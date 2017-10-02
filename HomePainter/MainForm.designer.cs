@@ -37,9 +37,24 @@
             this.rectanguloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.circuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pentagonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblMachineName = new System.Windows.Forms.Label();
             this.tabPageArrange = new System.Windows.Forms.TabPage();
+            this.lblLados = new System.Windows.Forms.GroupBox();
+            this.numLados = new System.Windows.Forms.NumericUpDown();
+            this.grpRotacion = new System.Windows.Forms.GroupBox();
+            this.lblGrados = new System.Windows.Forms.Label();
+            this.numGrados = new System.Windows.Forms.NumericUpDown();
+            this.grpPosicion = new System.Windows.Forms.GroupBox();
+            this.lblY = new System.Windows.Forms.Label();
+            this.lblX = new System.Windows.Forms.Label();
+            this.numY = new System.Windows.Forms.NumericUpDown();
+            this.numX = new System.Windows.Forms.NumericUpDown();
+            this.grpTamano = new System.Windows.Forms.GroupBox();
+            this.lblHeight = new System.Windows.Forms.Label();
+            this.lblWidth = new System.Windows.Forms.Label();
+            this.numHeight = new System.Windows.Forms.NumericUpDown();
+            this.numWidth = new System.Windows.Forms.NumericUpDown();
             this.tabPageText = new System.Windows.Forms.TabPage();
             this.tabPageEstilo = new System.Windows.Forms.TabPage();
             this.grpboxOpacidad = new System.Windows.Forms.GroupBox();
@@ -64,6 +79,17 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.metroMainPanel = new MetroFramework.Controls.MetroPanel();
             this.menuStripMain.SuspendLayout();
+            this.tabPageArrange.SuspendLayout();
+            this.lblLados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numLados)).BeginInit();
+            this.grpRotacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numGrados)).BeginInit();
+            this.grpPosicion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numX)).BeginInit();
+            this.grpTamano.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
             this.tabPageEstilo.SuspendLayout();
             this.grpboxOpacidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numOpacidad)).BeginInit();
@@ -122,7 +148,7 @@
             this.rectanguloToolStripMenuItem,
             this.circuloToolStripMenuItem,
             this.elipseToolStripMenuItem,
-            this.pentagonoToolStripMenuItem});
+            this.poligonoToolStripMenuItem});
             this.figuraaToolStripMenuItem.Name = "figuraaToolStripMenuItem";
             this.figuraaToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.figuraaToolStripMenuItem.Text = "Figura";
@@ -130,26 +156,30 @@
             // rectanguloToolStripMenuItem
             // 
             this.rectanguloToolStripMenuItem.Name = "rectanguloToolStripMenuItem";
-            this.rectanguloToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.rectanguloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rectanguloToolStripMenuItem.Text = "Rectangulo";
+            this.rectanguloToolStripMenuItem.Click += new System.EventHandler(this.rectanguloToolStripMenuItem_Click);
             // 
             // circuloToolStripMenuItem
             // 
             this.circuloToolStripMenuItem.Name = "circuloToolStripMenuItem";
-            this.circuloToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.circuloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.circuloToolStripMenuItem.Text = "Circulo";
+            this.circuloToolStripMenuItem.Click += new System.EventHandler(this.circuloToolStripMenuItem_Click);
             // 
             // elipseToolStripMenuItem
             // 
             this.elipseToolStripMenuItem.Name = "elipseToolStripMenuItem";
-            this.elipseToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.elipseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.elipseToolStripMenuItem.Text = "Elipse";
+            this.elipseToolStripMenuItem.Click += new System.EventHandler(this.elipseToolStripMenuItem_Click);
             // 
-            // pentagonoToolStripMenuItem
+            // poligonoToolStripMenuItem
             // 
-            this.pentagonoToolStripMenuItem.Name = "pentagonoToolStripMenuItem";
-            this.pentagonoToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.pentagonoToolStripMenuItem.Text = "Pentagono";
+            this.poligonoToolStripMenuItem.Name = "poligonoToolStripMenuItem";
+            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.poligonoToolStripMenuItem.Text = "Poligono";
+            this.poligonoToolStripMenuItem.Click += new System.EventHandler(this.poligonoToolStripMenuItem_Click);
             // 
             // lblMachineName
             // 
@@ -163,11 +193,200 @@
             // 
             // tabPageArrange
             // 
+            this.tabPageArrange.Controls.Add(this.lblLados);
+            this.tabPageArrange.Controls.Add(this.grpRotacion);
+            this.tabPageArrange.Controls.Add(this.grpPosicion);
+            this.tabPageArrange.Controls.Add(this.grpTamano);
             this.tabPageArrange.Location = new System.Drawing.Point(4, 38);
             this.tabPageArrange.Name = "tabPageArrange";
             this.tabPageArrange.Size = new System.Drawing.Size(320, 340);
             this.tabPageArrange.TabIndex = 2;
             this.tabPageArrange.Text = "Organizar";
+            // 
+            // lblLados
+            // 
+            this.lblLados.Controls.Add(this.numLados);
+            this.lblLados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblLados.Location = new System.Drawing.Point(0, 240);
+            this.lblLados.Name = "lblLados";
+            this.lblLados.Size = new System.Drawing.Size(320, 100);
+            this.lblLados.TabIndex = 3;
+            this.lblLados.TabStop = false;
+            this.lblLados.Text = "Lados";
+            this.lblLados.Visible = false;
+            // 
+            // numLados
+            // 
+            this.numLados.Location = new System.Drawing.Point(66, 38);
+            this.numLados.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numLados.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numLados.Name = "numLados";
+            this.numLados.Size = new System.Drawing.Size(120, 20);
+            this.numLados.TabIndex = 8;
+            this.numLados.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numLados.ValueChanged += new System.EventHandler(this.numLados_ValueChanged);
+            // 
+            // grpRotacion
+            // 
+            this.grpRotacion.Controls.Add(this.lblGrados);
+            this.grpRotacion.Controls.Add(this.numGrados);
+            this.grpRotacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpRotacion.Location = new System.Drawing.Point(0, 160);
+            this.grpRotacion.Name = "grpRotacion";
+            this.grpRotacion.Size = new System.Drawing.Size(320, 80);
+            this.grpRotacion.TabIndex = 2;
+            this.grpRotacion.TabStop = false;
+            this.grpRotacion.Text = "Rotacion";
+            // 
+            // lblGrados
+            // 
+            this.lblGrados.AutoSize = true;
+            this.lblGrados.Location = new System.Drawing.Point(19, 34);
+            this.lblGrados.Name = "lblGrados";
+            this.lblGrados.Size = new System.Drawing.Size(44, 13);
+            this.lblGrados.TabIndex = 8;
+            this.lblGrados.Text = "Grados:";
+            // 
+            // numGrados
+            // 
+            this.numGrados.Location = new System.Drawing.Point(66, 32);
+            this.numGrados.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
+            this.numGrados.Name = "numGrados";
+            this.numGrados.Size = new System.Drawing.Size(120, 20);
+            this.numGrados.TabIndex = 7;
+            this.numGrados.ValueChanged += new System.EventHandler(this.numGrados_ValueChanged);
+            // 
+            // grpPosicion
+            // 
+            this.grpPosicion.Controls.Add(this.lblY);
+            this.grpPosicion.Controls.Add(this.lblX);
+            this.grpPosicion.Controls.Add(this.numY);
+            this.grpPosicion.Controls.Add(this.numX);
+            this.grpPosicion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpPosicion.Location = new System.Drawing.Point(0, 80);
+            this.grpPosicion.Name = "grpPosicion";
+            this.grpPosicion.Size = new System.Drawing.Size(320, 80);
+            this.grpPosicion.TabIndex = 1;
+            this.grpPosicion.TabStop = false;
+            this.grpPosicion.Text = "Posicion";
+            // 
+            // lblY
+            // 
+            this.lblY.AutoSize = true;
+            this.lblY.Location = new System.Drawing.Point(43, 47);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(17, 13);
+            this.lblY.TabIndex = 7;
+            this.lblY.Text = "Y:";
+            // 
+            // lblX
+            // 
+            this.lblX.AutoSize = true;
+            this.lblX.Location = new System.Drawing.Point(43, 21);
+            this.lblX.Name = "lblX";
+            this.lblX.Size = new System.Drawing.Size(17, 13);
+            this.lblX.TabIndex = 6;
+            this.lblX.Text = "X:";
+            // 
+            // numY
+            // 
+            this.numY.Location = new System.Drawing.Point(66, 45);
+            this.numY.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numY.Name = "numY";
+            this.numY.Size = new System.Drawing.Size(120, 20);
+            this.numY.TabIndex = 5;
+            this.numY.ValueChanged += new System.EventHandler(this.numY_ValueChanged);
+            // 
+            // numX
+            // 
+            this.numX.Location = new System.Drawing.Point(66, 19);
+            this.numX.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numX.Name = "numX";
+            this.numX.Size = new System.Drawing.Size(120, 20);
+            this.numX.TabIndex = 4;
+            this.numX.ValueChanged += new System.EventHandler(this.numX_ValueChanged);
+            // 
+            // grpTamano
+            // 
+            this.grpTamano.Controls.Add(this.lblHeight);
+            this.grpTamano.Controls.Add(this.lblWidth);
+            this.grpTamano.Controls.Add(this.numHeight);
+            this.grpTamano.Controls.Add(this.numWidth);
+            this.grpTamano.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpTamano.Location = new System.Drawing.Point(0, 0);
+            this.grpTamano.Name = "grpTamano";
+            this.grpTamano.Size = new System.Drawing.Size(320, 80);
+            this.grpTamano.TabIndex = 0;
+            this.grpTamano.TabStop = false;
+            this.grpTamano.Text = "Tamaño";
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Location = new System.Drawing.Point(23, 47);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(37, 13);
+            this.lblHeight.TabIndex = 3;
+            this.lblHeight.Text = "Altura:";
+            // 
+            // lblWidth
+            // 
+            this.lblWidth.AutoSize = true;
+            this.lblWidth.Location = new System.Drawing.Point(13, 21);
+            this.lblWidth.Name = "lblWidth";
+            this.lblWidth.Size = new System.Drawing.Size(50, 13);
+            this.lblWidth.TabIndex = 2;
+            this.lblWidth.Text = "Anchura:";
+            // 
+            // numHeight
+            // 
+            this.numHeight.Location = new System.Drawing.Point(66, 45);
+            this.numHeight.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numHeight.Name = "numHeight";
+            this.numHeight.Size = new System.Drawing.Size(120, 20);
+            this.numHeight.TabIndex = 1;
+            this.numHeight.ValueChanged += new System.EventHandler(this.numHeight_ValueChanged);
+            // 
+            // numWidth
+            // 
+            this.numWidth.Location = new System.Drawing.Point(66, 19);
+            this.numWidth.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numWidth.Name = "numWidth";
+            this.numWidth.Size = new System.Drawing.Size(120, 20);
+            this.numWidth.TabIndex = 0;
+            this.numWidth.ValueChanged += new System.EventHandler(this.numWidth_ValueChanged);
             // 
             // tabPageText
             // 
@@ -293,6 +512,7 @@
             this.picboxColorAzul.Size = new System.Drawing.Size(100, 50);
             this.picboxColorAzul.TabIndex = 0;
             this.picboxColorAzul.TabStop = false;
+            this.picboxColorAzul.Click += new System.EventHandler(this.picboxColorAzul_Click);
             this.picboxColorAzul.MouseEnter += new System.EventHandler(this.picboxColorAzul_MouseEnter);
             this.picboxColorAzul.MouseLeave += new System.EventHandler(this.picboxColorAzul_MouseLeave);
             // 
@@ -305,6 +525,7 @@
             this.picboxColorVerde.Size = new System.Drawing.Size(100, 50);
             this.picboxColorVerde.TabIndex = 1;
             this.picboxColorVerde.TabStop = false;
+            this.picboxColorVerde.Click += new System.EventHandler(this.picboxColorVerde_Click);
             this.picboxColorVerde.MouseEnter += new System.EventHandler(this.picboxColorVerde_MouseEnter);
             this.picboxColorVerde.MouseLeave += new System.EventHandler(this.picboxColorVerde_MouseLeave);
             // 
@@ -317,6 +538,7 @@
             this.picboxColorRojo.Size = new System.Drawing.Size(100, 50);
             this.picboxColorRojo.TabIndex = 2;
             this.picboxColorRojo.TabStop = false;
+            this.picboxColorRojo.Click += new System.EventHandler(this.picboxColorRojo_Click);
             this.picboxColorRojo.MouseEnter += new System.EventHandler(this.picboxColorRojo_MouseEnter);
             this.picboxColorRojo.MouseLeave += new System.EventHandler(this.picboxColorRojo_MouseLeave);
             // 
@@ -329,6 +551,7 @@
             this.picboxColorNaranja.Size = new System.Drawing.Size(100, 50);
             this.picboxColorNaranja.TabIndex = 3;
             this.picboxColorNaranja.TabStop = false;
+            this.picboxColorNaranja.Click += new System.EventHandler(this.picboxColorNaranja_Click);
             this.picboxColorNaranja.MouseEnter += new System.EventHandler(this.picboxColorNaranja_MouseEnter);
             this.picboxColorNaranja.MouseLeave += new System.EventHandler(this.picboxColorNaranja_MouseLeave);
             // 
@@ -341,6 +564,7 @@
             this.picboxColorRosa.Size = new System.Drawing.Size(100, 50);
             this.picboxColorRosa.TabIndex = 4;
             this.picboxColorRosa.TabStop = false;
+            this.picboxColorRosa.Click += new System.EventHandler(this.picboxColorRosa_Click);
             this.picboxColorRosa.MouseEnter += new System.EventHandler(this.picboxColorRosa_MouseEnter);
             this.picboxColorRosa.MouseLeave += new System.EventHandler(this.picboxColorRosa_MouseLeave);
             // 
@@ -353,18 +577,19 @@
             this.picboxColorNegro.Size = new System.Drawing.Size(100, 50);
             this.picboxColorNegro.TabIndex = 5;
             this.picboxColorNegro.TabStop = false;
+            this.picboxColorNegro.Click += new System.EventHandler(this.picboxColorNegro_Click);
             this.picboxColorNegro.MouseEnter += new System.EventHandler(this.picboxColorNegro_MouseEnter);
             this.picboxColorNegro.MouseLeave += new System.EventHandler(this.picboxColorNegro_MouseLeave);
             // 
             // metroTabControlFormato
             // 
             this.metroTabControlFormato.Controls.Add(this.tabPageEstilo);
-            this.metroTabControlFormato.Controls.Add(this.tabPageText);
             this.metroTabControlFormato.Controls.Add(this.tabPageArrange);
+            this.metroTabControlFormato.Controls.Add(this.tabPageText);
             this.metroTabControlFormato.Dock = System.Windows.Forms.DockStyle.Right;
             this.metroTabControlFormato.Location = new System.Drawing.Point(600, 24);
             this.metroTabControlFormato.Name = "metroTabControlFormato";
-            this.metroTabControlFormato.SelectedIndex = 0;
+            this.metroTabControlFormato.SelectedIndex = 1;
             this.metroTabControlFormato.Size = new System.Drawing.Size(328, 382);
             this.metroTabControlFormato.TabIndex = 3;
             this.metroTabControlFormato.UseSelectable = true;
@@ -443,6 +668,20 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            this.tabPageArrange.ResumeLayout(false);
+            this.lblLados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numLados)).EndInit();
+            this.grpRotacion.ResumeLayout(false);
+            this.grpRotacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numGrados)).EndInit();
+            this.grpPosicion.ResumeLayout(false);
+            this.grpPosicion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numX)).EndInit();
+            this.grpTamano.ResumeLayout(false);
+            this.grpTamano.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWidth)).EndInit();
             this.tabPageEstilo.ResumeLayout(false);
             this.grpboxOpacidad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numOpacidad)).EndInit();
@@ -470,7 +709,7 @@
         private System.Windows.Forms.ToolStripMenuItem rectanguloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem circuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem elipseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pentagonoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem poligonoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeHomePainterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
@@ -498,6 +737,21 @@
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.PictureBox picboxBordeColor;
         private MetroFramework.Controls.MetroPanel metroMainPanel;
+        private System.Windows.Forms.GroupBox grpPosicion;
+        private System.Windows.Forms.GroupBox grpTamano;
+        private System.Windows.Forms.GroupBox grpRotacion;
+        private System.Windows.Forms.Label lblHeight;
+        private System.Windows.Forms.Label lblWidth;
+        private System.Windows.Forms.NumericUpDown numHeight;
+        private System.Windows.Forms.NumericUpDown numWidth;
+        private System.Windows.Forms.Label lblY;
+        private System.Windows.Forms.Label lblX;
+        private System.Windows.Forms.NumericUpDown numY;
+        private System.Windows.Forms.NumericUpDown numX;
+        private System.Windows.Forms.Label lblGrados;
+        private System.Windows.Forms.NumericUpDown numGrados;
+        private System.Windows.Forms.GroupBox lblLados;
+        private System.Windows.Forms.NumericUpDown numLados;
     }
 }
 

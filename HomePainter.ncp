@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>FiguraView</Name>
         <Access>Public</Access>
-        <Location left="508" top="95" />
+        <Location left="918" top="160" />
         <Size width="238" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">PictureBox _picboxImagen</Member>
@@ -25,23 +25,27 @@
       <Entity type="Class">
         <Name>Figura</Name>
         <Access>Public</Access>
-        <Location left="128" top="95" />
-        <Size width="333" height="349" />
+        <Location left="289" top="10" />
+        <Size width="189" height="383" />
         <Collapsed>False</Collapsed>
         <Member type="Field">string _strNombre</Member>
         <Member type="Field">Point _pointPosicion</Member>
         <Member type="Field">Size _sizeTamano</Member>
         <Member type="Field">int _intOpacidad</Member>
         <Member type="Field">Brush _brushRellenoColor</Member>
-        <Member type="Field">Pen _penBordeColor</Member>
+        <Member type="Field">Color _colorBordeColor</Member>
         <Member type="Field">int _intBordeGrosor</Member>
+        <Member type="Field">PictureBox _picboxImagen</Member>
         <Member type="Property">public string Nombre { get; set; }</Member>
         <Member type="Property">public Point Posicion { get; set; }</Member>
         <Member type="Property">public Size Tamano { get; set; }</Member>
         <Member type="Property">public int Opacidad { get; set; }</Member>
         <Member type="Property">public Brush RellenoColor { get; set; }</Member>
-        <Member type="Property">public Pen BordeColor { get; set; }</Member>
+        <Member type="Property">public Color BordeColor { get; set; }</Member>
         <Member type="Property">public int BordeGrosor { get; set; }</Member>
+        <Member type="Method">private void ActualizarImagen()</Member>
+        <Member type="Method">public PictureBox ObtenerPictureBox()</Member>
+        <Member type="Constructor">public Figura()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
