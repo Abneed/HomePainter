@@ -264,5 +264,25 @@ namespace HomePainter
             g.FillRectangle(Brushes.Red, new Rectangle(new Point(20, 20), new Size(100, 100)));
             g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(20, 20), new Size(100, 100)));
         }
+
+        private void MainForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            coloresForm.Hide();
+        }
+
+        private void metroMainPanel_Click(object sender, EventArgs e)
+        {
+            coloresForm.Hide();
+        }
+
+        private void metroTabControlFormato_Click(object sender, EventArgs e)
+        {
+            coloresForm.Hide();
+        }
+
+        private void menuStripMain_Click(object sender, EventArgs e)
+        {
+            coloresForm.Hide();
+        }
     }
 }

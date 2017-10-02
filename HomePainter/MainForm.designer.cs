@@ -90,6 +90,7 @@
             this.menuStripMain.Size = new System.Drawing.Size(928, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStripMain";
+            this.menuStripMain.Click += new System.EventHandler(this.menuStripMain_Click);
             this.menuStripMain.MouseEnter += new System.EventHandler(this.menuStripMain_MouseEnter);
             // 
             // homeToolStripMenuItem
@@ -367,6 +368,7 @@
             this.metroTabControlFormato.Size = new System.Drawing.Size(328, 382);
             this.metroTabControlFormato.TabIndex = 3;
             this.metroTabControlFormato.UseSelectable = true;
+            this.metroTabControlFormato.Click += new System.EventHandler(this.metroTabControlFormato_Click);
             this.metroTabControlFormato.MouseEnter += new System.EventHandler(this.metroTabControlFormato_MouseEnter);
             // 
             // BottomToolStripPanel
@@ -420,6 +422,7 @@
             this.metroMainPanel.VerticalScrollbarBarColor = true;
             this.metroMainPanel.VerticalScrollbarHighlightOnWheel = false;
             this.metroMainPanel.VerticalScrollbarSize = 10;
+            this.metroMainPanel.Click += new System.EventHandler(this.metroMainPanel_Click);
             this.metroMainPanel.MouseEnter += new System.EventHandler(this.metroMainPanel_MouseEnter);
             // 
             // MainForm
@@ -435,6 +438,7 @@
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "MainForm";
             this.Text = "HomePainter";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseClick);
             this.MouseEnter += new System.EventHandler(this.MainForm_MouseEnter);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStripMain.ResumeLayout(false);
