@@ -66,6 +66,7 @@
     <Compile Include="ColoresForm.Designer.cs">
       <DependentUpon>ColoresForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Figura.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

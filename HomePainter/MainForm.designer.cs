@@ -35,7 +35,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.figuraaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rectanguloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.circuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblMachineName = new System.Windows.Forms.Label();
@@ -146,7 +145,6 @@
             // 
             this.figuraaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rectanguloToolStripMenuItem,
-            this.circuloToolStripMenuItem,
             this.elipseToolStripMenuItem,
             this.poligonoToolStripMenuItem});
             this.figuraaToolStripMenuItem.Name = "figuraaToolStripMenuItem";
@@ -159,13 +157,6 @@
             this.rectanguloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rectanguloToolStripMenuItem.Text = "Rectangulo";
             this.rectanguloToolStripMenuItem.Click += new System.EventHandler(this.rectanguloToolStripMenuItem_Click);
-            // 
-            // circuloToolStripMenuItem
-            // 
-            this.circuloToolStripMenuItem.Name = "circuloToolStripMenuItem";
-            this.circuloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.circuloToolStripMenuItem.Text = "Circulo";
-            this.circuloToolStripMenuItem.Click += new System.EventHandler(this.circuloToolStripMenuItem_Click);
             // 
             // elipseToolStripMenuItem
             // 
@@ -707,7 +698,6 @@
         private System.Windows.Forms.ToolStripMenuItem figuraaToolStripMenuItem;
         private System.Windows.Forms.Label lblMachineName;
         private System.Windows.Forms.ToolStripMenuItem rectanguloToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem circuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem elipseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem poligonoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;

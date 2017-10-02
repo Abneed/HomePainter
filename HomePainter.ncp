@@ -25,27 +25,28 @@
       <Entity type="Class">
         <Name>Figura</Name>
         <Access>Public</Access>
-        <Location left="289" top="10" />
-        <Size width="189" height="383" />
+        <Location left="153" top="12" />
+        <Size width="492" height="400" />
         <Collapsed>False</Collapsed>
         <Member type="Field">string _strNombre</Member>
-        <Member type="Field">Point _pointPosicion</Member>
+        <Member type="Field">string _strTipoFigura</Member>
+        <Member type="Field">int _intPosicionX</Member>
+        <Member type="Field">int _intPosicionY</Member>
         <Member type="Field">Size _sizeTamano</Member>
         <Member type="Field">int _intOpacidad</Member>
         <Member type="Field">Brush _brushRellenoColor</Member>
         <Member type="Field">Color _colorBordeColor</Member>
         <Member type="Field">int _intBordeGrosor</Member>
-        <Member type="Field">PictureBox _picboxImagen</Member>
         <Member type="Property">public string Nombre { get; set; }</Member>
-        <Member type="Property">public Point Posicion { get; set; }</Member>
+        <Member type="Property">public string TipoFigura { get; set; }</Member>
+        <Member type="Property">public int PosicionX { get; set; }</Member>
+        <Member type="Property">public int PosicionY { get; set; }</Member>
         <Member type="Property">public Size Tamano { get; set; }</Member>
         <Member type="Property">public int Opacidad { get; set; }</Member>
         <Member type="Property">public Brush RellenoColor { get; set; }</Member>
         <Member type="Property">public Color BordeColor { get; set; }</Member>
         <Member type="Property">public int BordeGrosor { get; set; }</Member>
-        <Member type="Method">private void ActualizarImagen()</Member>
-        <Member type="Method">public PictureBox ObtenerPictureBox()</Member>
-        <Member type="Constructor">public Figura()</Member>
+        <Member type="Constructor">public Figura(Point Posicion, Size Tamano, Brush RellenoColor, Color BordeColor, int BordeGrosor)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>

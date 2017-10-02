@@ -28,38 +28,71 @@ namespace HomePainter
 
         Graphics g;
         Brush brushRelleno = Brushes.DodgerBlue;
+        Figura miFigura = new Figura(100, 100, new Size(100, 100), Brushes.DodgerBlue, Color.Black, 1);
+
+        PictureBox picture = new PictureBox();
+            
         bool blEsRectangulo = true;
         bool blEsCirculo = false;
         bool blEsEllipse = false;
         bool blEsPoligono = false;
 
-        PictureBox picture = new PictureBox
-        {
-            Name = "pictureBox",
-            Size = new Size(100, 100),
-            Location = new Point(100, 100)
-        };
         
         public MainForm()
         {
             
             InitializeComponent();
 
-            colorBorde = Color.Black;
-
             this.Width = 1200;
             this.Height = 600;
-
-            grpboxBorde.Size = new Size(320, 50);
-            picboxBordeColor.Visible = false;
-            numBordeGrosor.Visible = false;
-
             lblMachineName.Text = Environment.MachineName;
+
+            // Se instancia la figura y se nombra.
+            miFigura.Nombre = "Shape1";
+            miFigura.TipoFigura = "Rectangulo";
+
+            // Se actualiza los controles para los colores del borde.
+            colorBorde = miFigura.BordeColor;
+            picboxBordeColor.BackColor = colorBorde;
+
+            // Se actualiza los puntos de grosor en el control de la forma.
+            numBordeGrosor.Value = (decimal)miFigura.BordeGrosor;
+            
+            // Se actualiza los valores de los controles para el tamano.
+            numWidth.Value = (decimal)miFigura.Tamano.Width;
+            numHeight.Value = (decimal)miFigura.Tamano.Height;
+
+            // Se actualiza los valores de los controles para la posicion del picturebox.
+            numX.Value = (decimal)miFigura.PosicionX;
+            numY.Value = (decimal)miFigura.PosicionY;
+
+            // Se actualiza los valores para la rotacion de la figura.
+
+            // Se actualiza los controles si tiene grosor o no la figura.
+            if (miFigura.BordeGrosor > 0)
+            {
+                cboBorde.Text = "Linea";
+                //grpboxBorde.Size = new Size(320, 100);
+                //picboxBordeColor.Visible = true;
+                //numBordeGrosor.Visible = true;
+            }
+            else
+            {
+                cboBorde.Text = "Sin Bordes";
+                //grpboxBorde.Size = new Size(320, 50);
+                //picboxBordeColor.Visible = false;
+                //numBordeGrosor.Visible = false;
+            }
+
+            this.picture.Name = miFigura.Nombre;
+            this.picture.Location = new Point(miFigura.PosicionX, miFigura.PosicionY);
+            this.picture.Size = new Size(miFigura.Tamano.Width + (miFigura.Tamano.Width / 5), miFigura.Tamano.Height + (miFigura.Tamano.Height / 5));
 
             this.picture.BorderStyle = BorderStyle.FixedSingle;
 
-            
-            ControlPaint.DrawFocusRectangle(Graphics.FromHwnd(picture.Handle), picture.ClientRectangle);
+            //g.FillRectangle(brushRelleno, new Rectangle(new Point(10, 10), new Size(100, 100)));
+
+            //g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(10, 10), new Size(100, 100)));
 
             this.picture.Click += Picture_Click;
             this.picture.MouseDown += Picture_MouseDown;
@@ -85,6 +118,8 @@ namespace HomePainter
             if (blDragging)
             {
                 picture.Location = new Point(picture.Location.X + e.X - dragPoint.X, picture.Location.Y + e.Y - dragPoint.Y);
+                numX.Value = (decimal)(picture.Location.X + e.X - dragPoint.X);
+                numY.Value = (decimal)(picture.Location.Y + e.Y - dragPoint.Y);
             }
         }
 
@@ -103,20 +138,58 @@ namespace HomePainter
             if (blDragging)
             {
                 blDragging = false;
- 
+
+                // Actualizar el tamano de la figura y despues el picturebox
+                miFigura.Tamano = new Size((int)numWidth.Value, (int)numHeight.Value);
+                this.picture.Size = new Size(miFigura.Tamano.Width + (miFigura.Tamano.Width / 5), miFigura.Tamano.Height + (miFigura.Tamano.Height / 5));
+
+                //this.picture.Width = (int)numWidth.Value;
+                //this.picture.Height = (int)numHeight.Value;
+
+                this.picture.BorderStyle = BorderStyle.FixedSingle;
+
                 g = this.picture.CreateGraphics();
+
                 g.Clear(Color.White);
+
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
-                g.FillRectangle(brushRelleno, new Rectangle(new Point(10, 10), new Size(100, 100)));
-                g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(10, 10), new Size(100, 100)));
+                //new SolidBrush(Color.FromArgb(colorBorde.A, colorBorde.R, colorBorde.G, colorBorde.B));
+
+                
+                
+                switch(miFigura.TipoFigura)
+                {
+                    case "Rectangulo":
+
+                        g.FillRectangle(brushRelleno, new Rectangle(new Point(10, 10), miFigura.Tamano));
+                        if (miFigura.BordeGrosor > 0)
+                            g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(10, 10), miFigura.Tamano));
+
+                        break;
+
+
+                    case "Elipse":
+
+                        g.FillEllipse(brushRelleno, new Rectangle(new Point(10, 10), miFigura.Tamano));
+                        if (miFigura.BordeGrosor > 0)
+                            g.DrawEllipse(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(10, 10), miFigura.Tamano));
+                        break;
+
+                    case "Poligono":
+
+
+
+                        break;
+                }
+                
 
             }
         }
 
         private void MetroMainPanel_ControlAdded(object sender, ControlEventArgs e)
         {
-            this.picture.Size = new Size(123, 123);
+            //this.picture.Size = new Size(123, 123);
         }
 
         private void flowFormat_Paint(object sender, PaintEventArgs e)
@@ -139,30 +212,20 @@ namespace HomePainter
             metroTrackBarOpacidad.Value = int.Parse(numOpacidad.Value.ToString());
         }
 
-        private void acercaDeHomePainterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (InfoForm.IsDisposed)
-                InfoForm = new AcercaDeForm();
-
-            InfoForm.Show();
-        }
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-
-
-        private void picboxMain_MouseEnter(object sender, EventArgs e)
-        {
-            picboxBordeColor.BackColor = colorBorde;
-        }
+        //private void picboxMain_MouseEnter(object sender, EventArgs e)
+        //{
+        //}
 
         private void cboBorde_TextChanged(object sender, EventArgs e)
         {
             if (cboBorde.Text == "Linea")
             {
+                miFigura.BordeGrosor = 1;
                 grpboxBorde.Size = new Size(320, 100);
                 picboxBordeColor.Visible = true;
                 numBordeGrosor.Visible = true;
@@ -185,30 +248,34 @@ namespace HomePainter
 
         private void MainForm_MouseEnter(object sender, EventArgs e)
         {
+            miFigura.BordeColor = colorBorde;
             picboxBordeColor.BackColor = colorBorde;
         }
 
         private void metroMainPanel_MouseEnter(object sender, EventArgs e)
         {
+            miFigura.BordeColor = colorBorde;
             picboxBordeColor.BackColor = colorBorde;
         }
 
         private void metroTabControlFormato_MouseEnter(object sender, EventArgs e)
         {
+            miFigura.BordeColor = colorBorde;
             picboxBordeColor.BackColor = colorBorde;
         }
 
         private void menuStripMain_MouseEnter(object sender, EventArgs e)
         {
+            miFigura.BordeColor = colorBorde;
             picboxBordeColor.BackColor = colorBorde;
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            Graphics g = this.picture.CreateGraphics();
-            g.Clear(Color.White);
-            g.FillRectangle(Brushes.Red, new Rectangle(new Point(20, 20), new Size(100, 100)));
-            g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(20, 20), new Size(100, 100)));
+            //Graphics g = this.picture.CreateGraphics();
+            //g.Clear(Color.White);
+            //g.FillRectangle(Brushes.Red, new Rectangle(new Point(20, 20), new Size(100, 100)));
+            //g.DrawRectangle(new Pen(colorBorde, (float)numBordeGrosor.Value), new Rectangle(new Point(20, 20), new Size(100, 100)));
         }
 
         private void MainForm_MouseClick(object sender, MouseEventArgs e)
@@ -231,26 +298,38 @@ namespace HomePainter
             coloresForm.Hide();
         }
 
+        #region AcercaDeToolStripMenuItem_Click
+
+        private void acercaDeHomePainterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (InfoForm.IsDisposed)
+                InfoForm = new AcercaDeForm();
+
+            InfoForm.Show();
+        }
+
+        #endregion
+
         #region FigurasToolStripMenuItem_Click
 
         private void rectanguloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            miFigura.TipoFigura = "Rectangulo";
         }
 
         private void circuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            miFigura.TipoFigura = "Circulo";
         }
 
         private void elipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            miFigura.TipoFigura = "Elipse";
         }
 
         private void poligonoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            miFigura.TipoFigura = "Poligono";
         }
 
         #endregion
@@ -360,22 +439,27 @@ namespace HomePainter
 
         private void numWidth_ValueChanged(object sender, EventArgs e)
         {
-
+            miFigura.Tamano = new Size((int)numWidth.Value, miFigura.Tamano.Height);
+            this.picture.Size = new Size(miFigura.Tamano.Width + (miFigura.Tamano.Width / 5), miFigura.Tamano.Height + (miFigura.Tamano.Height / 5));
         }
 
         private void numHeight_ValueChanged(object sender, EventArgs e)
         {
-
+            miFigura.Tamano = new Size(miFigura.Tamano.Width, (int)numHeight.Value);
+            this.picture.Size = new Size(miFigura.Tamano.Width + (miFigura.Tamano.Width / 5), miFigura.Tamano.Height + (miFigura.Tamano.Height / 5));
         }
 
         private void numX_ValueChanged(object sender, EventArgs e)
         {
-
+            miFigura.PosicionX = (int)numX.Value;
+            this.picture.Location = new Point(miFigura.PosicionX, miFigura.PosicionY);
         }
 
         private void numY_ValueChanged(object sender, EventArgs e)
         {
 
+            miFigura.PosicionY = (int)numY.Value;
+            this.picture.Location = new Point(miFigura.PosicionX, miFigura.PosicionY);
         }
 
         private void numGrados_ValueChanged(object sender, EventArgs e)
